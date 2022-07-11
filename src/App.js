@@ -1,5 +1,6 @@
 import React from "react";
 import { robots } from "./robots";
+import './App.css'
 import CardList from "./CardList";
 import SearchBox from './SearchBox';
 
