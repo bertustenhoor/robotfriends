@@ -1,8 +1,8 @@
 import React from "react";
 import './App.css'
-import CardList from "./CardList";
-import SearchBox from './SearchBox';
-import Scroll from './Scroll';
+import CardList from "../components/CardList";
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 
 class App extends React.Component {
     constructor() {
@@ -34,21 +34,15 @@ class App extends React.Component {
             return robot.name.toLowerCase().includes(search.toLowerCase())
         });
 
-        if (robotArray.length === 0) {
-            return (
-                <h2>Loading ...</h2>
-            );
-        } else {
-            return (
-                <div className='tc'>
-                    <h1>RoboFriends</h1>
-                    <SearchBox onSearch={this.onSearchChanged}/>
-                    <Scroll>
-                        <CardList robots={robotArray}/>
-                    </Scroll>
-                </div>
-            );
-        }
+        return (!robotArray.length) ?
+            <h2>Loading ...</h2> :
+            <div className='tc'>
+                <h1>RoboFriends</h1>
+                <SearchBox onSearch={this.onSearchChanged}/>
+                <Scroll>
+                    <CardList robots={robotArray}/>
+                </Scroll>
+            </div>
     }
 }
 
